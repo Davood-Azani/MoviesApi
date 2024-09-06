@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>7005b5e5-e520-4fe1-b60f-fe0698bf874e</UserSecretsId>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Compile Remove="Controllers\V1\**" />
+      <Compile Remove="Controllers\V2\**" />
+      <Content Remove="Controllers\V1\**" />
+      <Content Remove="Controllers\V2\**" />
+      <EmbeddedResource Remove="Controllers\V1\**" />
+      <EmbeddedResource Remove="Controllers\V2\**" />
+      <None Remove="Controllers\V1\**" />
+      <None Remove="Controllers\V2\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
+        <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Movies.Contracts\Movies.Contracts.csproj" />
+      <ProjectReference Include="..\Movis.Application\Movies.Application.csproj" />
+    </ItemGroup>
+
+</Project>
